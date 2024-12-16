@@ -1,0 +1,63 @@
+import numpy as np
+import pandas as pd
+
+
+
+############################ Calculate tree areas based on sufficientarian theory of justice  ##############################
+
+integrated_dataset = pd.read_excel("SA1_Integrated_Dataset_Filtered_Vul.xlsx")
+integrated_dataset = np.asarray(integrated_dataset)
+
+sufficientarian_expected_tree_area = np.empty((integrated_dataset.shape[0], 1), dtype=object)
+sufficientarian_expected_tree_area[:] = np.nan
+
+more_trees_sqm = sum(integrated_dataset[:, 2]) - sum(integrated_dataset[:, 3])
+print(more_trees_sqm)
+
+
+sufficientarian_percentage = np.empty((sufficientarian_expected_tree_area.shape[0], 1), dtype=object)
+sufficientarian_percentage[:, 0] = 1
+
+
+print(sufficientarian_percentage)
+
+for hvi in range(12):
+    under_threshold = 0
+    for i in range(sufficientarian_expected_tree_area.shape[0]):
+        if (15-hvi)/3-0.1 < integrated_dataset[i, 10] and integrated_dataset[i, 3] / integrated_dataset[i, 1] < integrated_dataset[11-hvi, 15] and sufficientarian_percentage[i, 0] == 1:
+            under_threshold += 1
+            sufficientarian_percentage[i, 0] = integrated_dataset[i, 3] / integrated_dataset[i, 1]
+
+
+    count = 0
+    while count < under_threshold:
+        print(count)
+        print(more_trees_sqm)
+        min_value = np.min(sufficientarian_percentage)
+        min_indices = np.where(sufficientarian_percentage == min_value)[0]
+        next_min_value = np.min(sufficientarian_percentage[sufficientarian_percentage > min_value])
+        if more_trees_sqm < 1 or next_min_value > integrated_dataset[11-hvi, 15]:
+            break
+        print(len(min_indices))
+        for m in range(len(min_indices)):
+            allocation = (next_min_value - min_value) * integrated_dataset[min_indices[m], 1]
+            if allocation > more_trees_sqm:
+                sufficientarian_percentage[min_indices[m], 0] = more_trees_sqm / integrated_dataset[min_indices[m], 1] + min_value
+                break
+            more_trees_sqm -= allocation
+            sufficientarian_percentage[min_indices[m], 0] = next_min_value
+        count += 1
+
+for i in range(sufficientarian_expected_tree_area.shape[0]):
+    if sufficientarian_percentage[i, 0] == 1:
+        sufficientarian_percentage[i, 0] = integrated_dataset[i, 3] / integrated_dataset[i, 1]
+for i in range(sufficientarian_expected_tree_area.shape[0]):
+    sufficientarian_expected_tree_area[i, 0] = integrated_dataset[i, 1] * sufficientarian_percentage[i, 0]
+
+
+
+df_pred = pd.DataFrame(sufficientarian_expected_tree_area)
+filepath_pred = 'Actual_SA1_Sufficientarian_TreeArea_Vul.xlsx'
+df_pred.to_excel(filepath_pred, index=False)
+
+########################################################################################################################
