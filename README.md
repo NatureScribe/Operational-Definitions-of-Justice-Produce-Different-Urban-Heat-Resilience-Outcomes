@@ -30,9 +30,31 @@ The repository uses systematic file naming conventions to indicate the **scenari
   - `Zero`: Represents a baseline or reference scenario (zero distribution).
   - `Actual`: Represents the actual distribution of tree canopies between 2016 and 2022 (actual distribution).
 
-...
+- **Justice theory**:
+  - `Egalitarian`: Focuses on equal distribution.
+  - `Prioritarian`: Emphasizes prioritizing vulnerable groups.
+  - `Sufficientarian`: Ensures minimum sufficient levels are met.
 
-# In Excel files (`.xlsx`):
+- **Granularity level**:
+  - `MB`: Mesh Block.
+  - `SA1`, `SA2`, `SA3`: Statistical Area Levels 1, 2, and 3.
+
+- **Spatial scale**:
+  - `LGA`: Local Government Area.
+    - If `LGA` is not mentioned in the name, the analysis is conducted at the Greater Sydney scale.
+
+- **Task**:
+  - `TreeArea`: Calculates the expected just tree canopy area in each unit and the difference between the expected just area and the scenario (zero or actual).
+  - `DistributionGraph`: Generates distribution graphs.
+  - `StatisticalMeasures`: Computes statistical measures.
+
+- **Attributes**:
+  - `Veg`: Considers built environment constraints and assumes tree canopy distribution only in vegetated areas.
+    - If `Veg` is not mentioned, no built environment constraint is applied, and distribution can occur across the entire unit area.
+  - `Vul`: Focuses on human-centered distribution using demographic data and heat vulnerability indexes as factors.
+    - If `Vul` is not mentioned, the analysis is environment-centered, using pre-existing tree canopies as distribution factors.
+
+## In Excel files (`.xlsx`):
 The naming convention for Excel files follows that of Python files, with additional features to indicate **integration status** and **data refinement status**.
 
 - **Integration status**:
