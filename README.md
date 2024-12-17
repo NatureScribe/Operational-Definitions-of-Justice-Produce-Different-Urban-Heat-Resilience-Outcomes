@@ -19,7 +19,7 @@ The datasets in this repository are provided in two formats:
 4. Once extracted, ensure the dataset is in `.xlsx` format to make it ready for use as input into the Python scripts.
 
 ### Notes:
-- All parts (e.g., `.Z01`, `.Z02`, etc.) are required for successful extraction.
+- All parts (`.Z01`, `.Z02`, and `.zip`) are required for successful extraction.
 - If extraction fails, ensure that all parts have been downloaded and placed in the same folder.
 
 # File naming convention
