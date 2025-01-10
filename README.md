@@ -1,5 +1,5 @@
 # Operationalizing-Justice-in-Heat-Resilience-Building-Projects
-This repository provides codes to compute statistical measures, distribution graphs, and deviations from justice (as detailed in the paper "Operationalizing Justice in Heat Resilience Building Projects"). Deviations are processed in Excel to calculate percentage differences and then input into ArcGIS for visualization.
+This repository provides codes to compute statistical measures, distribution graphs, and deviations from justice (as detailed in the paper "Operational Definitions of Justice Produce Different Heat Resilience Outcomes"). Deviations are processed in Excel to calculate percentage differences and then input into ArcGIS for visualization.
 
 # Dataset instructions
 The datasets in this repository are provided in two formats:
