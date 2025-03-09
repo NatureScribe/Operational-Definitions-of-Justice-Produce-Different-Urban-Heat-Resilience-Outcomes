@@ -1,7 +1,7 @@
 [![DOI](https://zenodo.org/badge/902176445.svg)](https://doi.org/10.5281/zenodo.14627576)
 
-# Operational-Definitions-of-Justice-Produce-Different-Heat-Resilience-Outcomes
-This repository provides codes to compute statistical measures, distribution graphs, and deviations from justice (as detailed in the paper "Operational Definitions of Justice Produce Different Heat Resilience Outcomes"). Deviations are processed in Excel to calculate percentage differences and then input into ArcGIS for visualization.
+# Operational-Definitions-of-Justice-Produce-Different-Urban-Heat-Resilience-Outcomes
+This repository provides codes to compute statistical measures, distribution graphs, and deviations from justice (as detailed in the paper "Operational Definitions of Justice Produce Different Urban Heat Resilience Outcomes"). Deviations are processed in Excel to calculate percentage differences and then input into ArcGIS for visualization.
 
 # Dataset instructions
 The datasets in this repository are provided in two formats:
